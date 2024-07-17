@@ -1,5 +1,6 @@
 const { put } = require('@vercel/blob');
 require('dotenv').config();
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -11,14 +12,13 @@ module.exports = async (req, res) => {
     plan: "Pro"
   });
 
-  // Replace 'YOUR_VERCEL_BLOB_TOKEN' with your actual token
- // const token = 'lF9zXDikQEQaQAMvxFU9cLIr';
+  const token = process.env.BLOB_READ_WRITE_TOKEN;
 
   try {
     const result = await put('json-data/home.json', content, {
       access: 'public', // Set access to public
       contentType: 'application/json',
-      token: process.env.BLOB_READ_WRITE_TOKEN // Pass the token
+      token: token // Pass the token
     });
 
     return res.status(200).json({ message: 'File uploaded successfully', url: result.url });
