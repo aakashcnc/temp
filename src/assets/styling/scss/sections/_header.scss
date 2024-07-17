@@ -1,0 +1,37 @@
+header.header {
+  background-color: transparent;
+  position: fixed;
+  width: 100%;
+  color: $white;
+  padding: 30px 0;
+  border-bottom: 1px solid $neutral-10;
+  z-index: 9999;
+
+  height: 100px;
+
+  @media screen and (max-width: $breakpoint-md) {
+    height: 84px;
+  }
+
+  &.colored-header {
+    background-color: rgba($blue, 0.8);
+    backdrop-filter: blur(10px);
+  }
+
+  a {
+    color: $white;
+  }
+
+  nav.nav-wrapper {
+    @include flex-center;
+    justify-content: space-between;
+    height: 100%;
+
+    // .top-nav {}
+
+    .menu-list {
+      @include flex-center-wrap;
+      column-gap: 40px;
+    }
+  }
+}

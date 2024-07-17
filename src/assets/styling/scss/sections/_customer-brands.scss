@@ -1,0 +1,8 @@
+body {
+    section.customer-brands-section {
+        .customer-brands-section-inner-wrapper {
+            @include flex-column;
+            gap: 60px;
+        }
+    }
+}

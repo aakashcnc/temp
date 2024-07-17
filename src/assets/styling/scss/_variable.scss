@@ -1,0 +1,154 @@
+// Colors variables and conditions for different theme
+$black: #000000;
+$white: #ffffff;
+$light-grey: #e5e8ea;
+$grey: #b2b9bf;
+$dark-grey: #4d5b69;
+$red: #f5222d;
+$green: #25d08d;
+$yellow: #faad14;
+$orange: #fd6d0a;
+$blue: #001529;
+
+// Theme Variables
+// Starts here
+// Primary Colors
+$primary-orange: $orange;
+$primary-blue: $blue;
+
+// Secondary Colors
+// Neutral Shades
+$neutral-1: #fdfdfd;
+$neutral-2: #f4f4f4;
+$neutral-3: #e5e8ea;
+$neutral-4: #ccd0d4;
+$neutral-5: #b2b9bf;
+$neutral-6: #99a1a9;
+$neutral-7: #808a94;
+$neutral-8: #66737f;
+$neutral-9: #4d5b69;
+$neutral-10: #334454;
+$neutral-11: #1a2c3e;
+
+// Orange Shades
+$orange-1: #e35400;
+$orange-2: #fd7c23;
+$orange-3: #fd8a3b;
+$orange-4: #fe9954;
+$orange-5: #fea76c;
+$orange-6: #feb684;
+$orange-7: #fec59d;
+$orange-8: #fed3b5;
+$orange-9: #ffe2ce;
+
+// Orange Shades
+$blue-1: #f1f6fb;
+$blue-2: #a1bdfa;
+$blue-3: #6291f7;
+$blue-4: #276ef0;
+$blue-5: #1332ae;
+$blue-6: #02006c;
+$blue-blob: #6282F7;
+
+// Alert Colors
+$warning: $red;
+$success: $green;
+$info: $yellow;
+
+// Gradients
+$grad-mild-blue: linear-gradient(180deg, $white 0%, $blue-1 100%);
+$grad-dark-blue: linear-gradient(180deg, $blue-6 0%, $blue-5 100%);
+$grad-light-blue: linear-gradient(
+  104.88deg,
+  rgba($blue-5, 0.8) -1.06%,
+  rgba($blue-3, 0.8) 100.25%
+);
+$grad-mixed: linear-gradient(
+  90deg,
+  $orange 0.31%,
+  rgba(#5783ed, 0.6) 86.92%,
+  $blue-1 155.94%
+);
+$grad-faded-orange: linear-gradient(
+  90deg,
+  $orange 0.31%,
+  rgba(orange, 0) 155.94%
+);
+$grad-faded-white: linear-gradient(
+  111.73deg,
+  rgba($white, 0.88) 12.4%,
+  rgba($white, 0.56) 124.55%
+);
+$grad-daded-dark-blue: linear-gradient(
+  66.6deg,
+  $blue -13.86%,
+  rgba($blue-5, 0.08) 71%
+);
+$grad-deep-dark-blue: linear-gradient(162.39deg, $blue 12.04%, $blue-5 263.02%);
+// Ends here
+
+// Shadows
+// Starts here
+// Neutral shadow shades
+$shadow-neutral-default: 0px 4px 8px -2px #3344541a;
+$shadow-neutral-hover: 0px 12px 16px -4px #33445414;
+$shadow-neutral-disabled: 0px 20px 24px -4px #33445414;
+$shadow-neutral-disabled-2: 0px 32px 64px -12px #3344543d;
+
+// Dark shadow shades
+$shadow-dark-default: 0px 4px 8px -2px #0015291a;
+$shadow-dark-hover: 0px 12px 16px -4px #00152914;
+$shadow-dark-disabled: 0px 20px 24px -4px #00152914;
+$shadow-dark-disabled-2: 0px 32px 64px -12px #0015293d;
+
+// Blue shadow shades
+$shadow-blue-default: 0px 4px 8px -2px #6291f71a;
+$shadow-blue-hover: 0px 12px 16px -4px #6291f714;
+$shadow-blue-disabled: 0px 20px 24px -4px #6291f714;
+$shadow-blue-disabled-2: 0px 32px 64px -12px #6291f73d;
+// Ends here
+
+// Typography Variables
+// Starts here
+$primary-font: "Rufina";
+$secondary-font: "Urbanist";
+
+// Font Weight
+$extra-light: 200;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$black-weight: 900;
+// Ends here
+
+// Utilities
+// Starts here
+$transition-fast: 350ms all ease;
+$transition: 550ms all ease;
+$transition-slow: 750ms all ease;
+
+// Responsive Breakpoints (no need to define default screen size : Desktop, Here as per figma the default screen size is 1920px or more)
+$breakpoint-xsm: 360px; // Extra small screens
+$breakpoint-sm: 767px; // Small screens
+$breakpoint-md: 991px; // Medium screens
+$breakpoint-lg: 1199px; // Large screens
+$breakpoint-xlg: 1440px; // Extra Large screens
+
+// Border Variables
+$border-rounded: 50%;
+$border-radius-xs: 4px;
+$border-radius-sm: 8px;
+$border-radius-md: 16px;
+$border-radius-lg: 24px;
+$border-radius-xlg: 32px;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xlg: 32px;
+// Ends here

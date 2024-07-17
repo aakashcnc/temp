@@ -1,0 +1,23 @@
+body {
+  section.explore-product-section {
+    background-image: url("../media/blob-patterns/blob-rounded-orange-pattern.webp"),
+      url("../media/blob-patterns/blob-rounded-blue-blob-pattern.webp");
+    background-position: bottom 102px left 151px, top 210px right 96px;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    object-position: center;
+    background-size: 425px auto, 496px auto;
+
+    animation: moveExploreSolutionPattern 2500ms infinite alternate;
+
+    .explore-product-section-inner-wrapper {
+      @include flex-column;
+      position: relative;
+      gap: 60px;
+
+      @media screen and (max-width: $breakpoint-sm) {
+        gap: 49px;
+      }
+    }
+  }
+}

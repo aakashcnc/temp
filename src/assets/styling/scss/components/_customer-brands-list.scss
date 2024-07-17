@@ -1,0 +1,52 @@
+body {
+  .customer-brands-list {
+    @include flex-center;
+    justify-content: space-between;
+    gap: 60px;
+
+    .brand-list-itm {
+      img.brand-logo {
+        height: 31px;
+        width: auto;
+        object-fit: contain;
+      }
+    }
+
+    // Swiper Slider Styling
+    .swiper {
+      @media screen and (max-width: $breakpoint-md) {
+        margin: 0 -30px;
+      }
+
+      .swiper-wrapper {
+        .swiper-slide {
+          height: auto;
+          width: 210px;
+          max-width: 100%;
+
+          @media screen and (max-width: $breakpoint-md) {
+            width: 190px;
+          }
+          @media screen and (max-width: $breakpoint-sm) {
+            width: 170px;
+          }
+          @media screen and (max-width: $breakpoint-xsm) {
+            width: 130px;
+          }
+
+          .brand-list-itm {
+            height: 100%;
+
+            @include flex-center;
+
+            img.brand-logo {
+              width: 100%;
+              height: auto;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+    }
+  }
+}
