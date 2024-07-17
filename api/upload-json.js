@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
   }
 
   //const { slug, content } = req.body;
- const { content } = {
+ const  content = {
   name: "Sammy",
   email: "sammy@example.com",
   plan: "Pro"
