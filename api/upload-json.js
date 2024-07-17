@@ -7,12 +7,15 @@ module.exports = async (req, res) => {
 
   const { slug, content } = req.body;
 
-  // Log the slug and content
-  console.log('Received slug:', slug);
-  console.log('Received content:', content);
+
 
   if (!slug || !content) {
     return res.status(400).json({ error: 'Slug and content are required' });
   }
+   return res.status(200).json({ 
+      message: 'File uploaded successfully', 
+      slug: slug, 
+      content: content 
+    });
 
 };
