@@ -12,8 +12,7 @@ module.exports = async (req, res) => {
   });
 
   try {
-    const result = await put('json-data/home.json', {
-      body: content, // Use body instead of data
+    const result = await put('json-data/home.json', content, {
       contentType: 'application/json',
     });
 
