@@ -14,6 +14,7 @@ module.exports = async (req, res) => {
   try {
     const result = await put('json-data/home.json', content, {
       access: 'public', // Set access to public
+      token: env.BLOB_READ_WRITE_TOKEN,
       contentType: 'application/json',
     });
 
