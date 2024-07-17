@@ -5,15 +5,15 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const content = {
+  const content = JSON.stringify({
     name: "Sammy",
     email: "sammy@example.com",
     plan: "Pro"
-  };
+  });
 
   try {
     const result = await put('json-data/home.json', {
-      data: JSON.stringify(content), // Convert the content object to a JSON string
+      body: content, // Use body instead of data
       contentType: 'application/json',
     });
 
