@@ -1,23 +1,25 @@
-const fs = require('fs');
-const path = require('path');
+// updateJson.js
 
-module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+import fetch from 'node-fetch';
 
-  const { slug, content } = req.body;
+const BASE_URL = 'http://localhost:3000'; // Replace with your server URL
 
-  if (!slug || !content) {
-    return res.status(400).json({ error: 'Slug and content are required' });
-  }
-
+const updateJson = async (slug, content) => {
+  const url = `${BASE_URL}/api/update`; // Replace with your server API endpoint
   try {
-    const filePath = path.join('/tmp', `${slug}.json`);
-    fs.writeFileSync(filePath, JSON.stringify(content));
-
-    return res.status(200).json({ message: 'File uploaded successfully' });
+    const response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({ slug, content }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    throw new Error(`Error updating JSON: ${error.message}`);
   }
 };
+
+export default updateJson;
