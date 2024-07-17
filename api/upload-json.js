@@ -13,6 +13,7 @@ module.exports = async (req, res) => {
 
   try {
     const result = await put('json-data/home.json', content, {
+      access: 'public', // Set access to public
       contentType: 'application/json',
     });
 
