@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const result = await put(`json-data/${slug}.json`, {
+    const result = await put('json-data/${slug}.json', {
       data: JSON.stringify(content, null, 2),
       contentType: 'application/json',
     });
