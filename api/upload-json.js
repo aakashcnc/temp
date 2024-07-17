@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
   });
 
   // Replace 'YOUR_VERCEL_BLOB_TOKEN' with your actual token
-  const token = '3TXGCXTuxlosl4ZGrcNXSvz3';
+  const token = 'lF9zXDikQEQaQAMvxFU9cLIr';
 
   try {
     const result = await put('json-data/home.json', content, {
