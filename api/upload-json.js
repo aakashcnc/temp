@@ -12,13 +12,13 @@ module.exports = async (req, res) => {
   });
 
   // Replace 'YOUR_VERCEL_BLOB_TOKEN' with your actual token
-  const token = 'lF9zXDikQEQaQAMvxFU9cLIr';
+ // const token = 'lF9zXDikQEQaQAMvxFU9cLIr';
 
   try {
     const result = await put('json-data/home.json', content, {
       access: 'public', // Set access to public
       contentType: 'application/json',
-      token: token // Pass the token
+      token: process.env.BLOB_READ_WRITE_TOKEN // Pass the token
     });
 
     return res.status(200).json({ message: 'File uploaded successfully', url: result.url });
