@@ -14,11 +14,15 @@ module.exports = async (req, res) => {
 
   const token = process.env.BLOB_READ_WRITE_TOKEN;
 
+  if (!token) {
+    return res.status(500).json({ error: 'Token not found' });
+  }
+
   try {
     const result = await put('json-data/home.json', content, {
-      access: 'public', // Set access to public
+      access: 'public',
       contentType: 'application/json',
-      token: token // Pass the token
+      token: token
     });
 
     return res.status(200).json({ message: 'File uploaded successfully', url: result.url });
