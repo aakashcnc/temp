@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const directoryPath = path.join(__dirname, '..', 'api', '');
+     const directoryPath = path.join(__dirname, '..', 'public', 'json-data');
     const filePath = path.join(directoryPath, `${slug}.json`);
 
     // Ensure the directory exists
