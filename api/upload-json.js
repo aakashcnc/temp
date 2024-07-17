@@ -12,8 +12,9 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const result = await put('json-data/${slug}.json', {
-      data: "hello",
+    const result = await put(`json-data/${slug}.json`, {
+      data: JSON.stringify(content, null, 2),
+      contentType: 'application/json',
     });
 
     return res.status(200).json({ message: 'File uploaded successfully', url: result.url });
