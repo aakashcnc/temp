@@ -17,8 +17,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-   const file = "json-data/home.json";
-   const fileBuffer = Buffer.from(await file.arrayBuffer());
+   
     const result = await put(`json-data/home.json`, {
       data: JSON.stringify(content), // Convert the content object to a JSON string
       contentType: 'application/json',
