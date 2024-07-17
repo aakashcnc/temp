@@ -5,20 +5,14 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  //const { slug, content } = req.body;
- const  content = {
-  name: "Sammy",
-  email: "sammy@example.com",
-  plan: "Pro"
-};
-
-  if (!content) {
-    return res.status(400).json({ error: 'Slug and content are required' });
-  }
+  const content = {
+    name: "Sammy",
+    email: "sammy@example.com",
+    plan: "Pro"
+  };
 
   try {
-   
-    const result = await put(`json-data/home.json`, {
+    const result = await put('json-data/home.json', {
       data: JSON.stringify(content), // Convert the content object to a JSON string
       contentType: 'application/json',
     });
