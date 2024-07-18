@@ -23,8 +23,8 @@ export default async (req, res) => {
   console.log('Using token:', token); // Add this line to verify the token
 
   try {
-    const fileName = 'home.json';
-    const url = `https://api.vercel.com/v8/artifacts/${fileName}`;
+    const filePath = 'json-data/home.json'; // Specify the desired path here
+    const url = `https://api.vercel.com/v8/artifacts/${filePath}`;
 
     const response = await fetch(url, {
       method: 'PUT',
