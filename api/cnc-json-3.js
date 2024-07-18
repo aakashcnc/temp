@@ -28,11 +28,8 @@ module.exports = async (req, res) => {
       token: token
     });
 
-    // Assuming Vercel Blob Storage appends a hash, we'll need to get the actual URL
-    const uploadedFilename = result.name; // This should be the actual filename after upload
-
-    // Construct URL with the actual uploaded filename
-    const url = `https://serverless-json-test.vercel.app/json-data/${uploadedFilename}`;
+    // Construct URL with the original filename
+    const url = `https://serverless-json-test.vercel.app/json-data/${originalFilename}`;
 
     return res.status(200).json({ message: 'File uploaded successfully', url });
   } catch (error) {
