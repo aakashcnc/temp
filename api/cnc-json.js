@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
   const JSON_URL = 'https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json';
-  const JSON_FILE_PATH = path.join(__dirname, 'data.json');
+  const JSON_FILE_PATH = path.join("/var/task/public/json-data/"", 'data.json');
   const content = JSON.stringify({
     name: "Sammy",
     email: "sammy@example.com",
