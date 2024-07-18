@@ -13,11 +13,11 @@ module.exports = async (req, res) => {
   const JSON_URL = 'https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json';
   const JSON_FILE_PATH = path.join(__dirname, 'data.json');
   const response = await axios.get(JSON_URL);
-  jsonData = response.data;
+  const jsonData = response.data;
 
       // Save JSON data to local file
    const result =  await fs.writeFile(JSON_FILE_PATH, JSON.stringify(jsonData));
-  return res.status(200).json({ message: 'File uploaded successfully', result: result, path: JSON_FILE_PATH});
+  return res.status(200).json({ message: 'File uploaded successfully', result: result});
   // try {
   //   let jsonData;
 
