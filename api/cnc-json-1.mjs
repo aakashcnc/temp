@@ -30,7 +30,7 @@ export default async (req, res) => {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/octet-stream',
+        'Content-Type': 'application/json',
         'Content-Length': content.length.toString(),
       },
       body: Buffer.from(content, 'utf-8')
