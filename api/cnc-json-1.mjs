@@ -1,7 +1,9 @@
-const fetch = require('node-fetch');
-require('dotenv').config();
+import fetch from 'node-fetch';
+import dotenv from 'dotenv';
 
-module.exports = async (req, res) => {
+dotenv.config();
+
+export default async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -13,25 +15,28 @@ module.exports = async (req, res) => {
   });
 
   const token = process.env.CNC_READ_WRITE_TOKEN;
-  //const projectId = process.env.VERCEL_PROJECT_ID; // Add your project ID
 
   if (!token) {
     return res.status(500).json({ error: 'Token not found' });
   }
 
   try {
-    const response = await fetch(`https://api.vercel.com/v8/artifacts/home.json`, {
+    const fileName = 'home.json';
+    const url = `https://api.vercel.com/v8/artifacts/${fileName}`;
+    
+    const response = await fetch(url, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
-        'Content-Length': content.length
+        'Content-Length': content.length.toString(),
       },
       body: content
     });
 
     if (!response.ok) {
-      throw new Error('Failed to upload file');
+      const errorText = await response.text();
+      throw new Error(`Failed to upload file: ${response.statusText} - ${errorText}`);
     }
 
     const result = await response.json();
