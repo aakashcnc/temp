@@ -18,21 +18,25 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: 'Token not found' });
   }
 
-  const filename = 'home.json'; // Specify the filename here
+  const originalFilename = 'home.json'; // Specify the original filename here
+  const storageFilename = `json-data/${originalFilename}`; // Specify storage path
 
   try {
-    const result = await put(`json-data/${filename}`, content, {
+    const result = await put(storageFilename, content, {
       access: 'public',
       contentType: 'application/json',
       token: token
     });
 
-    return res.status(200).json({ message: 'File uploaded successfully', url: `https://serverless-json-test.vercel.app/${filename}` });
+    // Assuming Vercel Blob Storage appends a hash, we'll need to get the actual URL
+    const uploadedFilename = result.name; // This should be the actual filename after upload
+
+    // Construct URL with the actual uploaded filename
+    const url = `https://serverless-json-test.vercel.app/json-data/${uploadedFilename}`;
+
+    return res.status(200).json({ message: 'File uploaded successfully', url });
   } catch (error) {
     console.error('Error uploading file:', error);
-    return res.status(500).json({ error: error.message, token: token });
+    return res.status(500).json({ error: error.message, token });
   }
 };
-
-
-
