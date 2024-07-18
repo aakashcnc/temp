@@ -23,15 +23,15 @@ export default async (req, res) => {
   try {
     const fileName = 'home.json';
     const url = `https://api.vercel.com/v8/artifacts/${fileName}`;
-    
+
     const response = await fetch(url, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/octet-stream',
         'Content-Length': content.length.toString(),
       },
-      body: content
+      body: Buffer.from(content, 'utf-8')
     });
 
     if (!response.ok) {
@@ -40,7 +40,7 @@ export default async (req, res) => {
     }
 
     const result = await response.json();
-    return res.status(200).json({ message: 'File uploaded successfully', url: result.url });
+    return res.status(200).json({ message: 'File uploaded successfully', url: result.urls[0] });
   } catch (error) {
     console.error('Error uploading file:', error);
     return res.status(500).json({ error: error.message });
