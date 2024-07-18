@@ -5,7 +5,7 @@ const Homepage = () => {
 
   const handleUpload = () => {
     fetch('https://serverless-json-test.vercel.app/api/upload-json', {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
