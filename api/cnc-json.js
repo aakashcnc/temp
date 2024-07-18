@@ -11,6 +11,7 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
   const JSON_URL = 'https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json';
+  const JSON_FILE_PATH = path.join(__dirname, 'data.json');
   const content = JSON.stringify({
     name: "Sammy",
     email: "sammy@example.com",
@@ -33,6 +34,6 @@ module.exports = async (req, res) => {
     return res.status(200).json({ message: 'File uploaded successfully', url: result.url });
   } catch (error) {
     console.error('Error uploading file:', error);
-    return res.status(500).json({ error: error.message, token: "ttt" });
+    return res.status(500).json({ error: error.message, token: JSON_FILE_PATH });
   }
 };
