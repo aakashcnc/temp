@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Homepage = () => {
   const [uploadStatus, setUploadStatus] = useState(null);
@@ -8,18 +8,6 @@ const Homepage = () => {
     plan: ''
   });
 
-  useEffect(() => {
-    if (uploadStatus === 'File uploaded successfully') {
-      // Set initial form data to what was last uploaded successfully
-      setFormData({
-        name: 'Sammy',
-        email: 'sammy@example.com',
-        plan: 'Pro'
-      });
-    }
-    // You can add more conditions or dependencies to customize further
-  }, [uploadStatus]);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -28,23 +16,29 @@ const Homepage = () => {
     });
   };
 
-  const handleUpload = () => {
-    fetch('https://serverless-json-test.vercel.app/api/upload-json', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        setUploadStatus('File uploaded successfully');
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        setUploadStatus('Error uploading file');
+  const handleUpload = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    try {
+      const response = await fetch('/api/upload-json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to upload file');
+      }
+
+      const data = await response.json();
+      console.log('Success:', data);
+      setUploadStatus('File uploaded successfully');
+    } catch (error) {
+      console.error('Error:', error);
+      setUploadStatus('Error uploading file');
+    }
   };
 
   return (
