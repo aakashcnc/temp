@@ -42,7 +42,7 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: 'Token not found' });
   }
 
-  const kvClient = kv(token);
+  const kvClient = kv(token);  // Correct initialization
 
   if (req.method === 'POST') {
     // Handle POST request to store data in KV
