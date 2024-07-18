@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
   });
 
   const token = process.env.CNC_READ_WRITE_TOKEN;
-  const projectId = process.env.VERCEL_PROJECT_ID; // Add your project ID
+  //const projectId = process.env.VERCEL_PROJECT_ID; // Add your project ID
 
   if (!token) {
     return res.status(500).json({ error: 'Token not found' });
