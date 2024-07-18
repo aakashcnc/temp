@@ -16,8 +16,8 @@ module.exports = async (req, res) => {
   jsonData = response.data;
 
       // Save JSON data to local file
-   const result =  await fs.writeFile(JSON_FILE_PATH, JSON.stringify(jsonData));
-  return res.status(200).json({ message: 'File uploaded successfully', url: result });
+   //const result =  await fs.writeFile(JSON_FILE_PATH, JSON.stringify(jsonData));
+  return res.status(200).json({ message: 'File uploaded successfully' });
   // try {
   //   let jsonData;
 
