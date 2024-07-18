@@ -11,12 +11,12 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
   const JSON_URL = 'https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json';
-  const JSON_FILE_PATH = path.join("/var/task/public/json-data/", 'data.json');
+  const JSON_FILE_PATH = path.join(__dirname, 'data.json');
   const response = await axios.get(JSON_URL);
   jsonData = response.data;
 
       // Save JSON data to local file
-   //const result =  await fs.writeFile(JSON_FILE_PATH, JSON.stringify(jsonData));
+   const result =  await fs.writeFile(JSON_FILE_PATH, JSON.stringify(jsonData));
   return res.status(200).json({ message: 'File uploaded successfully' });
   // try {
   //   let jsonData;
