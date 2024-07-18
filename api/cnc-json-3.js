@@ -18,22 +18,16 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: 'Token not found' });
   }
 
-  const originalFilename = 'home.json'; // Specify the original filename here
-  const storageFilename = `json-data/${originalFilename}`; // Specify storage path
-
   try {
-    const result = await put(storageFilename, content, {
+    const result = await put('json-data/home.json', content, {
       access: 'public',
       contentType: 'application/json',
       token: token
     });
 
-    // Construct URL with the original filename
-    const url = `https://serverless-json-test.vercel.app/json-data/${originalFilename}`;
-
-    return res.status(200).json({ message: 'File uploaded successfully', url });
+    return res.status(200).json({ message: 'File uploaded successfully', url: result.url });
   } catch (error) {
     console.error('Error uploading file:', error);
-    return res.status(500).json({ error: error.message, token });
+    return res.status(500).json({ error: error.message, token: token });
   }
 };
