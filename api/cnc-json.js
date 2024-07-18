@@ -12,29 +12,34 @@ module.exports = async (req, res) => {
   }
   const JSON_URL = 'https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json';
   const JSON_FILE_PATH = path.join("/var/task/public/json-data/", 'data.json');
-
-  try {
-    let jsonData;
-
-    // Check if JSON file already exists locally
-    try {
-      jsonData = await fs.readFile(JSON_FILE_PATH, 'utf-8');
-     
-    } catch (error) {
-      // If file doesn't exist, fetch from URL
-      const response = await axios.get(JSON_URL);
-      jsonData = response.data;
+  const response = await axios.get(JSON_URL);
+  jsonData = response.data;
 
       // Save JSON data to local file
-      await fs.writeFile(JSON_FILE_PATH, JSON.stringify(jsonData));
-     
-    }
+  await fs.writeFile(JSON_FILE_PATH, JSON.stringify(jsonData));
+  
+  // try {
+  //   let jsonData;
 
-   return res.json(jsonData);
-  } catch (error) {
+  //   // Check if JSON file already exists locally
+  //   try {
+  //     jsonData = await fs.readFile(JSON_FILE_PATH, 'utf-8');
+     
+  //   } catch (error) {
+  //     // If file doesn't exist, fetch from URL
+  //     const response = await axios.get(JSON_URL);
+  //     jsonData = response.data;
+
+  //     // Save JSON data to local file
+  //     await fs.writeFile(JSON_FILE_PATH, JSON.stringify(jsonData));
+     
+  //   }
+
+  //  return res.json(jsonData);
+  // } catch (error) {
     
-   return res.status(500).json({ error: 'Error fetching data' });
-  }
+  //  return res.status(500).json({ error: 'Error fetching data' });
+  // }
   
   // const content = JSON.stringify({
   //   name: "Sammy",
