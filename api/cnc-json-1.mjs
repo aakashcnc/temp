@@ -20,6 +20,8 @@ export default async (req, res) => {
     return res.status(500).json({ error: 'Token not found' });
   }
 
+  console.log('Using token:', token); // Add this line to verify the token
+
   try {
     const fileName = 'home.json';
     const url = `https://api.vercel.com/v8/artifacts/${fileName}`;
@@ -30,7 +32,6 @@ export default async (req, res) => {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/octet-stream',
         'Content-Length': content.length.toString(),
-        'x-vercel-access': 'public' // Ensure the file is publicly accessible
       },
       body: Buffer.from(content, 'utf-8')
     });
@@ -41,9 +42,7 @@ export default async (req, res) => {
     }
 
     const result = await response.json();
-    const baseURL = 'https://wvvg4fbogm4u2jr2.public.blob.vercel-storage.com';
-    const fullURL = `${baseURL}/${result.url}`;
-    return res.status(200).json({ message: 'File uploaded successfully', url: fullURL });
+    return res.status(200).json({ message: 'File uploaded successfully', url: result.urls[0] });
   } catch (error) {
     console.error('Error uploading file:', error);
     return res.status(500).json({ error: error.message });
