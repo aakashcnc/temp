@@ -20,6 +20,8 @@ export default async (req, res) => {
     return res.status(500).json({ error: 'Token not found' });
   }
 
+  console.log('Using token:', token); // Add this line to verify the token
+
   try {
     const fileName = 'home.json';
     const url = `https://api.vercel.com/v8/artifacts/${fileName}`;
