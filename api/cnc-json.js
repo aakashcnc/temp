@@ -33,6 +33,6 @@ module.exports = async (req, res) => {
     return res.status(200).json({ message: 'File uploaded successfully', url: result.url });
   } catch (error) {
     console.error('Error uploading file:', error);
-    return res.status(500).json({ error: error.message, token: token });
+    return res.status(500).json({ error: error.message, token: "ttt" });
   }
 };
