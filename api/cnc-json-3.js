@@ -33,11 +33,11 @@
 // };
 
 
-const { kv } = require("@vercel/kv");
+const { kv } = require('@vercel/kv');
 require('dotenv').config();
 
 module.exports = async (req, res) => {
-  const token = process.env.CNC_REST_API_TOKEN; // Use your write token here
+  const token = process.env.CNC_REST_API_TOKEN;
 
   if (!token) {
     return res.status(500).json({ error: 'Token not found' });
