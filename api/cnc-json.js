@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
       token: token
     });
 
-    return res.status(200).json({ message: 'File uploaded successfully', url: `https://your-custom-domain.com/${filename}` });
+    return res.status(200).json({ message: 'File uploaded successfully', url: `https://serverless-json-test.vercel.app/${filename}` });
   } catch (error) {
     console.error('Error uploading file:', error);
     return res.status(500).json({ error: error.message, token: token });
