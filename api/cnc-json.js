@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
     plan: "Pro"
   });
 
-  const token = process.env.BLOB_READ_WRITE_TOKEN;
+  const token = process.env.CNC_READ_WRITE_TOKEN;
 
   if (!token) {
     return res.status(500).json({ error: 'Token not found' });
