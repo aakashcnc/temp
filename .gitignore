@@ -4,3 +4,4 @@
 
 #npm Logs
 npm-debug.log*
+.vercel

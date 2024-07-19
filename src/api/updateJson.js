@@ -2,7 +2,7 @@
 
 import fetch from 'node-fetch';
 
-const BASE_URL = 'http://localhost:3000'; // Replace with your server URL
+const BASE_URL = 'http://localhost:3001'; // Replace with your server URL
 
 const updateJson = async (slug, content) => {
   const url = `${BASE_URL}/api/update`; // Replace with your server API endpoint
