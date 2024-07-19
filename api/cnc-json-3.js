@@ -44,7 +44,9 @@ module.exports = async (req, res) => {
 
   let kvClient;
   try {
+    console.log('Initializing KV client with token:', token);
     kvClient = kv(token);  // Correct initialization
+    console.log('KV client initialized successfully');
   } catch (error) {
     console.error('Error initializing KV client:', error);
     return res.status(500).json({ error: 'Error initializing KV client' });
