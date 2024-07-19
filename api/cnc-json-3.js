@@ -23,6 +23,9 @@ module.exports = async (req, res) => {
       access: "public",
       contentType: "application/json",
       token: token,
+      headers: {
+        'Content-Disposition': 'inline; filename="home.json"'
+      }
     });
 
     return res
