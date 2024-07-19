@@ -32,7 +32,7 @@ export default async (req, res) => {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      body: content
+      body: JSON.stringify({ content })
     });
 
     if (!response.ok) {
