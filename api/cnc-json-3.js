@@ -19,13 +19,10 @@ module.exports = async (req, res) => {
   }
 
   try {
-    // const result = await put("json-data/home.json", content, {
-    //   access: "public",
-    //   contentType: "application/json",
-    //   token: token,
-    // });
     const result = await put("json-data/home.json", content, {
       access: "public",
+      contentType: "application/json",
+      token: token,
     });
 
     return res
