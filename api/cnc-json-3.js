@@ -38,13 +38,16 @@ require('dotenv').config();
 module.exports = async (req, res) => {
   const token = process.env.CNC_REST_API_TOKEN;
 
+  // Log the token to ensure it is being read correctly
+  console.log('Token:', token);
+
   if (!token) {
+    console.error('Token not found');
     return res.status(500).json({ error: 'Token not found' });
   }
 
   let kvClient;
   try {
-    console.log('Initializing KV client with token:', token);
     kvClient = kv(token);  // Correct initialization
     console.log('KV client initialized successfully');
   } catch (error) {
