@@ -15,4 +15,4 @@ For more details on deployment, refer to the [deployment section](https://facebo
 ### `URL`
 
 Vercel temporarily for testing purpose:
-- [Serverless Approch](https://serverless-json-test.vercel.app/)
+- [Serverless Approach](https://serverless-json-test.vercel.app/)
