@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
       contentType: "application/json",
       token: token,
       headers: {
-        'content-security-policy': 'default-src "none"'
+        'content-security-policy': 'default-src "none"' 
       }
     });
 
